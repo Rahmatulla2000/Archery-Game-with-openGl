@@ -20,8 +20,14 @@ An interactive 2D archery game built using **OpenGL (GLUT)** in C++. The player 
 - **Score & Attempt Tracking**
   - 5 attempts per game
   - Final score shown after the last arrow
+## Some ScreenShot
+![1](Screenshot 2025-05-16 210210.png)
+![2](Screenshot 2025-05-16 210311.png)
+![3](Screenshot 2025-05-16 210324.png)
+![4](Screenshot 2025-05-16 210334.png)
+![5](Screenshot 2025-05-16 210347.png)
 
----
+
 
 ## Installation & Run Instructions
 
