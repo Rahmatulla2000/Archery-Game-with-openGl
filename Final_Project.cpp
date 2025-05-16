@@ -479,12 +479,43 @@ void display() {
     drawText(20, HEIGHT - 30, "Score: " + to_string(score));
     drawText(20, HEIGHT - 60, "Attempts Left: " + to_string(attemptsLeft));
     drawText(20, HEIGHT - 90, "Range: " + to_string(currentBackground + 1) + "/5");
+     
+   if (attemptsLeft == 5) {
+    float startY = HEIGHT - 100;
+
+    // Set text color to bright yellow
+    glColor3f(1.0f, 1.0f, 0.0f);  // Yellow color
+
+    // Center X position for the text block
+    float centerX = WIDTH / 2;
+
+    // Draw text with shadow for better visibility
+    auto drawShadowedText = [&](float x, float y, const std::string& text) {
+        // Shadow (black, offset by 1 pixel)
+        glColor3f(0.0f, 0.0f, 0.0f);
+        drawText(x + 1, y - 1, text);
+
+        // Main text (yellow)
+        glColor3f(1.0f, 1.0f, 0.0f);
+        drawText(x, y, text);
+    };
+
+    // Assuming drawText draws left aligned,
+    // calculate text width offset for approximate centering
+    // (Adjust 150 or do better text width calc if available)
+    float offsetX = 150;
+
+    drawShadowedText(centerX - offsetX, startY, "Welcome to Archery Challenge!");
+    drawShadowedText(centerX - offsetX, startY - 25, "Use UP / DOWN arrow keys to set angle.");
+    drawShadowedText(centerX - offsetX, startY - 50, "Press SPACE to shoot the arrow.");
+    drawShadowedText(centerX - offsetX, startY - 75, "You have 5 attempts. Good luck!");
+}
 
 
     // Draw buttons
    drawButton(restartBtn, "Restart", 0.0f, 0.7f, 0.0f); // Green
    drawButton(exitBtn, "Exit", 0.8f, 0.0f, 0.0f);       // Red
-
+    
 
     if (attemptsLeft <= 0) {
         glColor3f(1, 0, 0);
@@ -581,7 +612,7 @@ int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA);
     glutInitWindowSize(WIDTH, HEIGHT);
-    glutCreateWindow("OpenGL Arrow Shooting Game");
+    glutCreateWindow("Archary_Game_2D");
 
     init();
 
